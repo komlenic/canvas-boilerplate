@@ -9,10 +9,6 @@ Canvas Boilerplate is the go-to solution for quickly creating modern canvas piec
 
 2.  Install dependencies:
 
-        yarn
-
-    or
-
         npm install
 
 3.  Run webpack:
