@@ -1,4 +1,9 @@
-import utils from './utils';
+require('@styles/style.css');
+import utils from '@js/utils';
+
+// Uncomment if needed.
+// import images from '@images/images';
+// import audio from '@audio/audio';
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
