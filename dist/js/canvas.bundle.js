@@ -161,27 +161,65 @@ function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { 
 function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+/**
+ * Gets a random integer from a range.
+ * @param {number} min An integer.
+ * @param {number} max An integer.
+ * @returns {number} A random integer between min and max, inclusive.
+ */
 function randomIntFromRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+/**
+ * Gets a random floating-point number from a range.
+ * @param {number} min Any number.
+ * @param {number} max Any number.
+ * @returns {number} A random float between min and max, inclusive.
+ */
 function randomFloatFromRange(min, max) {
   return Math.random() * (max - min) + min;
 }
+
+/**
+ * Returns true or false based on a percent chance. 
+ * @param {number} percentage A number between 0 and 100.
+ * @returns {boolean} Returns true with a % chance based on the provided value.
+ */
 function chance(percentage) {
   return Math.random() * 100 < percentage;
 }
+
+/**
+ * Gets a random item from an array.
+ * @param {array} array 
+ * @returns A random item from the array.
+ */
 function randomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
+
+/**
+ * Returns the distance between two cartesian points.
+ * @param {number} x1 The x value for the first coordinate.
+ * @param {number} y1 The y value for the first coordinate.
+ * @param {number} x2 The x value for the second coordinate.
+ * @param {number} y2 The y value for the second coordinate.
+ * @returns {number} The distance between the two cartesian points.
+ */
 function distance(x1, y1, x2, y2) {
   var xDist = x2 - x1;
   var yDist = y2 - y1;
   return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
 }
+
+/**
+ * Represents a sound.
+ */
 var _audio = /*#__PURE__*/new WeakMap();
-var sound = /*#__PURE__*/function () {
-  function sound(src) {
-    _classCallCheck(this, sound);
+var Sound = /*#__PURE__*/function () {
+  function Sound(src) {
+    _classCallCheck(this, Sound);
     _classPrivateFieldInitSpec(this, _audio, {
       writable: true,
       value: void 0
@@ -193,7 +231,7 @@ var sound = /*#__PURE__*/function () {
     _classPrivateFieldGet(this, _audio).style.display = 'none';
     document.body.appendChild(_classPrivateFieldGet(this, _audio));
   }
-  _createClass(sound, [{
+  _createClass(Sound, [{
     key: "play",
     value: function play() {
       _classPrivateFieldGet(this, _audio).play();
@@ -204,7 +242,7 @@ var sound = /*#__PURE__*/function () {
       _classPrivateFieldGet(this, _audio).pause();
     }
   }]);
-  return sound;
+  return Sound;
 }();
 module.exports = {
   randomIntFromRange: randomIntFromRange,
@@ -212,7 +250,7 @@ module.exports = {
   chance: chance,
   randomItem: randomItem,
   distance: distance,
-  sound: sound
+  Sound: Sound
 };
 
 /***/ }),
