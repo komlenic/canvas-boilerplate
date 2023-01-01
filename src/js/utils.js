@@ -29,7 +29,7 @@ function chance(percentage) {
 
 /**
  * Gets a random item from an array.
- * @param {array} array 
+ * @param {object} array An array.
  * @returns A random item from the array.
  */
 function randomItem(array) {
@@ -58,6 +58,10 @@ class Sound {
 
   #audio;
 
+  /**
+   * Create a sound.
+   * @param {string} src A sound file.
+   */
   constructor(src) {
     this.#audio = document.createElement('audio');
     this.#audio.src = src;
@@ -67,10 +71,16 @@ class Sound {
     document.body.appendChild(this.#audio);
   }
 
+  /**
+   * Play the sound.
+   */
   play() {
     this.#audio.play();
   }
 
+  /**
+   * Pause the sound.
+   */
   pause() {
     this.#audio.pause();
   }
