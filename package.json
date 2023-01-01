@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack --config webpack.config.js",
     "start": "webpack --config webpack.config.js",
+    "build": "./node_modules/.bin/jsdoc -c jsdoc.config.json ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "browser-sync-webpack-plugin": "^2.2.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.0.3",
+    "jsdoc": "~4.0.0",
     "prettier": "^2.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
